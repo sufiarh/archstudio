@@ -21,7 +21,11 @@ if [ ! -f packages.txt ]; then
     exit 1
 fi
 
-sudo pacman -S --needed --noconfirm - < packages.txt
+# Clean comments + empty lines before installing
+PKGS=$(grep -v "^\s*#" packages.txt | grep -v "^\s*$")
+
+sudo pacman -S --needed --noconfirm $PKGS
+
 
 # --------------------------------------------------------
 # 3. Restore dotfiles (~/.config)
