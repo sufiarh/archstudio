@@ -94,6 +94,7 @@ if [ -d sddm/themes ]; then
     sudo cp -r sddm/themes/* /usr/share/sddm/themes/
 fi
 
+sudo mkdir -p /etc/sddm.conf.d
 echo "[Theme]
 Current=chili" | sudo tee /etc/sddm.conf.d/theme.conf
 
