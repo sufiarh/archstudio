@@ -34,5 +34,6 @@ sddm
 firefox
 
 # Utils
+rsync
 brightnessctl
 fastfetch
