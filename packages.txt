@@ -45,7 +45,6 @@ xdg-desktop-portal-hyprland
 
 # Display Manager (SDDM + theme)
 sddm
-sddm-sugar-dark
 
 # Browser
 firefox
