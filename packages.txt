@@ -37,3 +37,7 @@ rsync
 brightnessctl
 fastfetch
 nano
+ttf-jetbrains-mono-nerd
+ttf-nerd-fonts-symbols
+ttf-nerd-fonts-symbols-mono
+ttf-font-awesome
