@@ -5,8 +5,9 @@ echo "================================="
 echo "  Sufiarh Hyprland Dotfiles Installer"
 echo "================================="
 
+
 # --------------------------------------------------------
-# 0. Install yay if missing
+# 0. Ensure yay exists
 # --------------------------------------------------------
 if ! command -v yay &> /dev/null; then
     echo "[0/6] yay not found. Installing yay..."
@@ -17,11 +18,13 @@ if ! command -v yay &> /dev/null; then
     cd -
 fi
 
+
 # --------------------------------------------------------
 # 1. Update system
 # --------------------------------------------------------
 echo "[1/6] Updating system..."
 sudo pacman -Syu --noconfirm
+
 
 # --------------------------------------------------------
 # 2. Install packages (pacman + aur)
@@ -33,58 +36,15 @@ if [ ! -f packages.txt ]; then
     exit 1
 fi
 
-# Clean packages list (remove comments & empty lines)
+# Clean list
 PKGS=$(grep -v "^\s*#" packages.txt | grep -v "^\s*$")
 
-# Pacman official packages (filter yang bukan AUR)
-PACMAN_PKGS=$(echo "$PKGS" | grep -v -E "^(wlogout|tofi)$" || true)
+# Packages that are from AUR only
+AUR_ONLY="wlogout tofi"
 
-# AUR packages
-AUR_PKGS=$(echo "$PKGS" | grep -E "^(wlogout|tofi)$" || true)
+PACMAN_PKGS=$(echo "$PKGS" | grep -v -E "$(echo $AUR_ONLY | sed 's/ /|/g')" || true)
+AUR_PKGS=$(echo "$PKGS"   | grep -E "$(echo $AUR_ONLY | sed 's/ /|/g')" || true)
 
-if [ -n "$PACMAN_PKGS" ]; then
-    echo "→ Installing official packages..."
-    sudo pacman -S --needed --noconfirm $PACMAN_PKGS
-fi
-
-if [ -n "$AUR_PKGS" ]; then
-    echo "→ Installing AUR packages..."
-    yay -S --needed --noconfirm $AUR_PKGS
-fi
 
 # --------------------------------------------------------
-# 3. Restore ~/.config
-# --------------------------------------------------------
-echo "[3/6] Restoring ~/.config..."
-mkdir -p ~/.config
-rsync -avh .config/ ~/.config/
-
-# --------------------------------------------------------
-# 4. Install SDDM themes
-# --------------------------------------------------------
-echo "[4/6] Installing SDDM themes..."
-
-if [ -d sddm/themes ]; then
-    sudo mkdir -p /usr/share/sddm/themes/
-    sudo cp -r sddm/themes/* /usr/share/sddm/themes/
-fi
-
-echo "[Theme]
-Current=chili" | sudo tee /etc/sddm.conf.d/theme.conf
-
-sudo systemctl enable sddm.service
-
-# --------------------------------------------------------
-# 5. Enable services
-# --------------------------------------------------------
-echo "[5/6] Enabling services..."
-sudo systemctl enable --now NetworkManager
-sudo systemctl enable --now bluetooth || true
-
-# --------------------------------------------------------
-# 6. Done!
-# --------------------------------------------------------
-echo "================================="
-echo " Installation complete!"
-echo " Reboot to apply everything."
-echo "================================="
+# 2A. Prevent conflicts (fix wlog
