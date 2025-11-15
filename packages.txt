@@ -1,10 +1,12 @@
-# Audio
+# Audio dan Bluetooth
 pipewire
 pipewire-alsa
 pipewire-pulse
 wireplumber
 gst-plugin-pipewire
 pamixer
+bluez
+bluez-utils
 
 # File Manager
 thunar
