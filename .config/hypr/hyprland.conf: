@@ -1,0 +1,5 @@
+# Jalankan swww saat start Hyprland
+exec-once = swww init
+
+# Pilih 1 wallpaper acak dari folder
+exec-once = bash -c 'swww img "$(find /home/haku/.config/assets/backgrounds/ -type f | shuf -n1)" --transition-type wipe --transition-duration 2'

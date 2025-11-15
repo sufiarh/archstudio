@@ -1,0 +1,55 @@
+# Core system
+base
+linux
+linux-firmware
+amd-ucode
+networkmanager
+git
+nano
+sudo
+efibootmgr
+grub
+bluez
+bluez-utils
+
+# Audio
+pipewire
+pipewire-alsa
+pipewire-pulse
+wireplumber
+gst-plugin-pipewire
+pamixer
+
+# File Manager + GVFS
+thunar
+gvfs
+gvfs-smb
+
+# Hyprland Environment
+hyprland
+hypridle
+hyprpaper
+waybar
+kitty
+dunst
+wlogout
+tofi
+cliphist
+swww
+slurp
+grim
+hyprpicker
+
+# Wayland Portal
+xdg-desktop-portal-hyprland
+
+# Display Manager (SDDM + theme)
+sddm
+sddm-sugar-dark
+
+# Browser
+firefox
+
+# Utils
+brightnessctl
+neofetch
