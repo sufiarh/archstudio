@@ -20,7 +20,6 @@ hyprpaper
 waybar
 kitty
 dunst
-wlogout
 tofi
 cliphist
 swww
