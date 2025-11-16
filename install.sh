@@ -71,7 +71,9 @@ rsync -avh .config/ ~/.config/
 # 4. Enable services
 # --------------------------------------------------------
 echo "[4/6] Enabling services..."
+sudo pacman -S --needed networkmanager
 sudo systemctl enable --now NetworkManager
+sudo pacman -S --needed bluez
 sudo systemctl enable --now bluetooth.service || true
 
 # --------------------------------------------------------
