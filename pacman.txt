@@ -20,14 +20,11 @@ kicad
 kitty
 libreoffice-fresh
 libva-utils
-localsend
 mpv
 nano
 pamixer
 rsync
-spotify
 swww
-tofi
 ttf-jetbrains-mono-nerd
 ttf-nerd-fonts-symbols
 ttf-nerd-fonts-symbols-mono
@@ -35,6 +32,4 @@ udiskie
 waybar
 wf-recorder
 woff2-font-awesome
-yay
-yay-debug
 zram-generator
