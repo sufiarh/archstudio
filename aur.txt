@@ -1,0 +1,5 @@
+localsend
+spotify
+tofi
+yay
+yay-debug
