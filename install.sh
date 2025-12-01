@@ -24,35 +24,28 @@ echo "[1/6] Updating system..."
 sudo pacman -Syu --noconfirm
 
 # --------------------------------------------------------
-# 2. Install packages (pacman + AUR)
+# 2. Install packages (using pacman.txt + aur.txt)
 # --------------------------------------------------------
 echo "[2/6] Installing packages..."
 
-if [ ! -f packages.txt ]; then
-    echo "ERROR: packages.txt not found!"
+if [ ! -f pacman.txt ]; then
+    echo "ERROR: pacman.txt not found!"
     exit 1
 fi
 
-# Clean list
-PKGS=$(grep -v "^\s*#" packages.txt | grep -v "^\s*$")
+if [ ! -f aur.txt ]; then
+    echo "ERROR: aur.txt not found!"
+    exit 1
+fi
 
-# Packages that are from AUR only
-AUR_ONLY="tofi"
+PACMAN_PKGS=$(grep -v "^\s*#" pacman.txt | grep -v "^\s*$")
+AUR_PKGS=$(grep -v "^\s*#" aur.txt | grep -v "^\s*$")
 
-PACMAN_PKGS=$(echo "$PKGS" | grep -v -E "$(echo $AUR_ONLY | sed 's/ /|/g')" || true)
-AUR_PKGS=$(echo "$PKGS"   | grep -E "$(echo $AUR_ONLY | sed 's/ /|/g')" || true)
-
-# --------------------------------------------------------
-# 2B. Install pacman packages
-# --------------------------------------------------------
 if [ -n "$PACMAN_PKGS" ]; then
     echo "→ Installing official packages..."
     sudo pacman -S --needed --noconfirm $PACMAN_PKGS
 fi
 
-# --------------------------------------------------------
-# 2C. Install AUR packages
-# --------------------------------------------------------
 if [ -n "$AUR_PKGS" ]; then
     echo "→ Installing AUR packages..."
     yay -S --needed --noconfirm $AUR_PKGS
@@ -71,15 +64,14 @@ rsync -avh .config/ ~/.config/
 # 4. Enable services
 # --------------------------------------------------------
 echo "[4/6] Enabling services..."
-sudo pacman -S --needed networkmanager
+sudo pacman -S --needed --noconfirm networkmanager bluez
 sudo systemctl enable --now NetworkManager
-sudo pacman -S --needed bluez
 sudo systemctl enable --now bluetooth.service || true
 
 # --------------------------------------------------------
-# 4A. Setup auto-login and start Hyprland
+# 5. Setup auto-login & Hyprland autostart
 # --------------------------------------------------------
-echo "[5/6] Setting up auto-login to Hyprland and Disabling GRUB menu..."
+echo "[5/6] Setting up auto-login to Hyprland and disabling boot menu..."
 USER_NAME=$(whoami)
 
 sudo mkdir -p /etc/systemd/system/getty@tty1.service.d/
@@ -89,17 +81,13 @@ ExecStart=
 ExecStart=-/sbin/agetty --autologin $USER_NAME --noclear %I \$TERM
 EOF
 
-# Make sure Hyprland auto-starts on TTY login
 grep -qxF '[[ -z $DISPLAY ]] && exec Hyprland' ~/.bash_profile || \
     echo '[[ -z $DISPLAY ]] && exec Hyprland' >> ~/.bash_profile
 
-# Disable GRUB menu (auto-boot Arch)
+# Disable bootloader timeout if using systemd-boot
 if [ -d /boot/loader ]; then
     echo "default arch" | sudo tee /boot/loader/loader.conf
     echo "timeout 0" | sudo tee -a /boot/loader/loader.conf
-    echo "[INFO] systemd-boot configured for auto-boot"
-else
-    echo "[INFO] systemd-boot not found, skipping bootloader auto-boot setup"
 fi
 
 # --------------------------------------------------------
