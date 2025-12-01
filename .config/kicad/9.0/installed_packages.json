@@ -1,0 +1,144 @@
+{
+    "packages": [
+        {
+            "current_version": "0.2.4",
+            "install_timestamp": 1764316948,
+            "package": {
+                "author": {
+                    "contact": {
+                        "github": "https://github.com/aislerhq",
+                        "twitter": "https://twitter.com/aislerhq",
+                        "web": "https://aisler.net"
+                    },
+                    "name": "AISLER B.V."
+                },
+                "description": "Push your layout to AISLER with just one click for instant Powerful Prototyping",
+                "description_full": "Want to use Powerful Prototyping or Amazing Assembly from AISLER? This plugin will provide you with a convenient one-click push to our service.\nWhen you click the AISLER Push-Button we will export your project's\n• Gerber Files in the right format, so that production will run ultra-smooth\n• IPC-Netlist-File to enable Smart Tests for production so that you get feedback down to the tiniest trace on how to improve your design for production\n• BOM-file to import all components you have already assigned in your project\n• P'n'P-file to get your project ready for assembly\nOnce the upload (which will only take a couple of seconds) is complete you can place your order within less than one minute. If you iterate on your design and click the push button again, we will make sure your project is only stored as a new revision on our server.\nAbout AISLER:\nAISLER makes hardware less hard by providing simple electronics manufacturing for everyone. We are based in Europe and focus on amazingly affordable prices, super swift delivery and outstanding customer support. We are KiCad Platinum Sponsor as we donate a significant amount of our revenues made from KiCad designs back to the project.",
+                "identifier": "com.github.aislerhq.PushForKiCad",
+                "license": "MIT",
+                "maintainer": {
+                    "contact": {
+                        "github": "https://github.com/aislerhq",
+                        "twitter": "https://twitter.com/aislerhq",
+                        "web": "https://aisler.net"
+                    },
+                    "name": "AISLER B.V."
+                },
+                "name": "AISLER Push for KiCad",
+                "resources": {
+                    "homepage": "https://github.com/aislerhq/PushForKiCad"
+                },
+                "type": "fab",
+                "versions": [
+                    {
+                        "download_sha256": "5880633bb5bdd56cb2464cf34c8175e1f032d212266da32a1cc412ebb7cf93b3",
+                        "download_size": 12817,
+                        "download_url": "https://github.com/aislerhq/PushForKiCad/releases/download/0.2.4/PushForKiCad-0.2.4-pcm.zip",
+                        "install_size": 20789,
+                        "kicad_version": "8.00",
+                        "status": "stable",
+                        "version": "0.2.4"
+                    }
+                ]
+            },
+            "pinned": false,
+            "repository_id": "46f88614eade3439",
+            "repository_name": "KiCad official repository"
+        },
+        {
+            "current_version": "1.1",
+            "install_timestamp": 1763710415,
+            "package": {
+                "author": {
+                    "contact": {
+                        "web": "http://antonsavov.net"
+                    },
+                    "name": "Anton Savov"
+                },
+                "description": "Schematic theme that mimics Pen and Paper",
+                "description_full": "Dark ink for the symbols, blue ink for the wires and values, red ink for the labels, vibrant yellow for the selected objects. Use Lines for the grid!",
+                "identifier": "com.gitlab.antto.kicad-themes.hartia",
+                "license": "CC0-1.0",
+                "maintainer": {
+                    "contact": {
+                        "web": "https://gitlab.com/antto/kicad-themes"
+                    },
+                    "name": "antto"
+                },
+                "name": "Hartia Theme",
+                "resources": {
+                    "homepage": "https://gitlab.com/antto/kicad-themes"
+                },
+                "type": "colortheme",
+                "versions": [
+                    {
+                        "download_sha256": "12be4d6f0b2c2056ed363db94ee8c20b1d4a7e51243f035b85cbc8255746b439",
+                        "download_size": 9387,
+                        "download_url": "https://gitlab.com/antto/kicad-themes/-/raw/main/hartia/com.gitlab.antto.kicad-themes.hartia.zip",
+                        "install_size": 14877,
+                        "kicad_version": "6.0",
+                        "status": "stable",
+                        "version": "1.1"
+                    }
+                ]
+            },
+            "pinned": false,
+            "repository_id": "46f88614eade3439",
+            "repository_name": "KiCad official repository"
+        },
+        {
+            "current_version": "2024.02.25",
+            "install_timestamp": 1763468807,
+            "package": {
+                "author": {
+                    "contact": {
+                        "github": "https://github.com/lethalbit",
+                        "mastodon": "https://chaos.social/@lethalbit",
+                        "website": "https://lethalbit.net"
+                    },
+                    "name": "Aki Van Ness"
+                },
+                "description": "A dark and vibrant color scheme by @lethalbit",
+                "description_full": "A dark and vibrant color scheme by @lethalbit",
+                "identifier": "net.lethalbit.arcana",
+                "license": "CC-BY-NC-SA-4.0",
+                "maintainer": {
+                    "contact": {
+                        "github": "https://github.com/lethalbit",
+                        "mastodon": "https://chaos.social/@lethalbit",
+                        "website": "https://lethalbit.net"
+                    },
+                    "name": "Aki Van Ness"
+                },
+                "name": "Arcana",
+                "resources": {
+                    "github": "https://github.com/lethalbit/arcana-kicad"
+                },
+                "type": "colortheme",
+                "versions": [
+                    {
+                        "download_sha256": "1a1b0030cc8f5b60d2b8a680d9dbc34b0ea697f12eed47744c93956f70a047fb",
+                        "download_size": 13283,
+                        "download_url": "https://github.com/lethalbit/arcana-kicad/releases/download/2024.02.25/kicad-arcana.zip",
+                        "install_size": 20337,
+                        "kicad_version": "7.0",
+                        "status": "stable",
+                        "version": "2024.02.25"
+                    },
+                    {
+                        "download_sha256": "a1192841d2a273df686bf97bcea5fff38f1ee7eaa84269403d42b124b8caaa05",
+                        "download_size": 13029,
+                        "download_url": "https://github.com/lethalbit/arcana-kicad/releases/download/2023.11.21/kicad-arcana.zip",
+                        "install_size": 20206,
+                        "kicad_version": "7.0",
+                        "status": "stable",
+                        "version": "2023.11.21"
+                    }
+                ]
+            },
+            "pinned": false,
+            "repository_id": "46f88614eade3439",
+            "repository_name": "KiCad official repository"
+        }
+    ]
+}
